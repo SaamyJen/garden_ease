@@ -4,7 +4,7 @@
 </section>
 
 <section class="selected-form">
-  <%= form_with url: "/spaces" do |form| %>
+  <%= form_with url: "/spaces", id: "space-form", local: true do |form| %>
     <fieldset>
       <% @spaces.order(:type_of_space).each do |space| %>
         <% unique_id = "space_#{space.id}" %>
@@ -12,6 +12,15 @@
         <%= label_tag unique_id, space.type_of_space %>
       <% end %>
     </fieldset>
-    <%= submit_tag "Next", class: "button-purple selected-btn" %>
+    <%= submit_tag "Next", class: "button-purple selected-btn", id: "next-btn" %>
   <% end %>
 </section>
+
+<div id="popup1" class="overlay" style="display;">
+	<div class="popup">
+		<h2>Loading...</h2>
+		<div class="content">
+			Please wait
+		</div>
+	</div>
+</div>
