@@ -44,9 +44,14 @@ input {
   border-radius: 20px;
 }
 
-.form-actions button {
+.form-actions {
   width: 100%;
   padding: 15px;
+
+  input {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
 }
 
@@ -57,19 +62,37 @@ input {
 
   input[type="submit"].btn {
 
-    font-family: $headers-font;
-    color:#fff;
-    font-size: 14px;
-    padding-inline: 0;
-    border-radius: 0px;
-    background-color: #932770 !important;
-    width: 150px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 24px;
+  background-color: $purple;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 30px;
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+
+  &:hover {
+    background-color: $purple;
+    color: $purple;
   }
 
-  input[type="submit"].btn:hover {
-    background-color: #661b4f;
-    border-radius: 0px;
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
   }
+  &:hover::before {
+    width: 100%;
+  }
+}
