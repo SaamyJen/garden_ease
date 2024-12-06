@@ -40,14 +40,12 @@
   position:absolute;
   width: 1100px;
   left: -110px;
-  animation: leafanimation 5s ease 7s forwards;
 }
 
 #growing-a {
   z-index: 2;
+  opacity: 0;
   animation: grow 1s ease 1.5s forwards;
-  transform: rotate(2deg);
-  transition: transform 5s;
 }
 
 
