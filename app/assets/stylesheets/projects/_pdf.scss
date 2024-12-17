@@ -1,0 +1,35 @@
+#project-pdf {
+  h3 { font-size: 28px !important; }
+
+  h4 { font-size: 16px; }
+
+  p { font-size: 12px; }
+
+  .image-container { width: 160px; border: 4px solid #fff; }
+
+  .project-title {
+    margin: 0px auto;
+    height: 240px;
+    width: 95vw;
+  }
+
+  .project-content {
+    width: 95vw;
+    padding-top: 0px;
+    justify-content: flex-start;
+  }
+  .items {
+    width: 300px;
+
+    li {
+      font-size: 12px;
+      width: 160px;
+     }
+  }
+
+  .method {
+    li {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,46 +1,167 @@
-.main-container {
-  background-color: $yellow;
-  height: 100vh;
-  position: relative;
+@keyframes grow {
+  0% {top: 90px; opacity: 0%; transform: scaleY(0);}
+  100% {top: 0px; opacity: 100%; transform: scaleY(1);}
 }
 
-.child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@keyframes wind {
+  0% {transform:translate(-7px,-415px) rotate(0deg); opacity: 100%;}
+  80% {transform:translate(-10px,-415px) rotate(0deg); opacity: 80%;}
+  100% {transform:translate(-15px,-415px) rotate(6deg); opacity: 100%;}
+}
+
+
+.home-container {
+  height: 80vh !important;
+  width: 100vw !important;
+  margin: 80px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-title {
+  margin-top: -20%;
+  position: relative;
   text-align: center;
 }
 
 .main-title {
   position: relative;
+  font-weight: 600;
+  z-index: 3;
+  width: 90%;
+  margin: 0;
+  text-align: center;
 }
 
 .welcome {
-  position:absolute;
-  top:0%;
-  left: 12%;
-  font-size: 40px;
+  position: absolute;
+  top: 0px;
+  left: 205px;
+  font-size: 36px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.leaf-container {
+  position: absolute;
+  width: 1100px;
+  left: 440px;
+  top: -245px;
+  transform: translateX(-50%);
+  // animation: wind 5s ease 1.5s infinite alternate;
+}
+
+.growing {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+#growing-a {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 1.5s forwards;
+}
+
+#growing-b {
+  z-index: 1;
+  opacity: 0;
+  animation: grow 1s ease 2s forwards;
+//   // no leaf animation on this one
+}
+
+#growing-c {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 3s forwards;
+}
+
+#growing-d {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 5s forwards;
+}
+
+#growing-e {
+  z-index: 1;
+  opacity: 0;
+  animation: grow 1s ease 8s forwards;
+}
+
+.presentation {
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .line {
   margin: 0;
 }
 
-.presentation {
-  margin-top:10px;
-  margin-bottom: 50px;
+.home-flex {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  a {
+    margin: 8px 12px;
+    width: 300px;
+  }
 }
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1020px) {
+  .main-title {font-size: 100px !important;}
 
-#learn-more {
-  background-color: white;
-  margin: 15px;
-  width: 300px;
+  .welcome {
+    font-size: 28px;
+    top: 0px;
+    left: 150px;
+  }
+
+  .title {margin-top: -40%;}
+
+  .home-flex {a {width: 250px;}}
+
+  .leaf-container {
+    width: 790px;
+    left: 315px;
+    top: -175px;
+  }
+
+  .presentation {font-size: 16px;}
 }
-#start {
-  color: white !important;
-  background-color: $green;
-  margin: 15px;
-  width: 300px;
+
+@media only screen and (max-width: 768px) {
+  .main-title {font-size: 48px !important;}
+
+  .welcome {
+    font-size: 12px;
+    top: 0px;
+    left: 73px;
+  }
+
+  .title {margin-top: -40%;}
+
+  .home-flex {
+    a {
+      width: 180px;
+      font-size: 12px;
+    }
+  }
+
+  .leaf-container {
+    width: 375px;
+    left: 150px;
+    top: -85px;
+  }
+
+  .presentation {font-size: 12px;}
 }

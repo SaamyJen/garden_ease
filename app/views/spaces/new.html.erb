@@ -1,0 +1,24 @@
+<section class="selected-title">
+  <h3>Describe your space</h3>
+  <p>So we can help you get the most out of it</p>
+</section>
+
+<div class="sidebar">
+  <p class="two"></p>&#9675;<br>
+  <p class="one"></p>&#9679;<br>
+  <p class="three"></p>&#9675;<br>
+</div>
+
+<section class="selected-form">
+  <%= form_with url: "/projects/#{@project.id}/spaces" do |form| %>
+    <fieldset>
+      <% @spaces.order(:id).each do |space| %>
+        <% unique_id = "space_#{space.id}" %>
+        <%= check_box_tag 'selected_spaces[]', space.id, id: unique_id, class: 'checkbox' %>
+        <%= label_tag unique_id, space.type_of_space %>
+      <% end %><br>
+      <%= form.text_field :spaces_input, placeholder: "Type other qualities here..." %>
+    </fieldset>
+    <%= submit_tag "Next", class: "button-purple selected-btn" %>
+  <% end %>
+</section>

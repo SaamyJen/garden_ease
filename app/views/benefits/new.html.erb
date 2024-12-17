@@ -1,0 +1,53 @@
+<section class="selected-title">
+  <h3>What's your goal?</h3>
+  <p>Choose what benefits you'd like to get out of your space</p>
+</section>
+
+<div class="sidebar">
+  <p class="one"></p>&#9679;<br>
+  <p class="two"></p>&#9675;<br>
+  <p class="three"></p>&#9675;<br>
+</div>
+
+<section class="selected-form">
+  <%= form_with url: "/benefits" do |form| %>
+    <fieldset class="benefit-form">
+      <div class="benefits-container">
+        <h5 class="benefits-title">Practical</h5><br>
+        <% @practical_benefits.each do |benefit| %>
+            <% unique_id = "benefit_#{benefit.id}" %>
+            <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
+            <%= label_tag unique_id, benefit.type_of_benefit %>
+        <% end %>
+      </div>
+
+      <div class="benefits-container">
+        <h5 class="benefits-title">Aesthetic</h5><br>
+        <% @aesthetic_benefits.each do |benefit| %>
+            <% unique_id = "benefit_#{benefit.id}" %>
+            <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
+            <%= label_tag unique_id, benefit.type_of_benefit %>
+        <% end %>
+      </div>
+
+      <div class="benefits-container">
+        <h5 class="benefits-title">Health</h5><br>
+        <% @health_benefits.each do |benefit| %>
+            <% unique_id = "benefit_#{benefit.id}" %>
+            <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
+            <%= label_tag unique_id, benefit.type_of_benefit %>
+        <% end %>
+      </div>
+
+      <div class="benefits-container">
+        <h5 class="benefits-title">Community</h5><br>
+        <% @community_benefits.each do |benefit| %>
+            <% unique_id = "benefit_#{benefit.id}" %>
+            <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
+            <%= label_tag unique_id, benefit.type_of_benefit %>
+        <% end %>
+      </div>
+    </fieldset>
+    <%= submit_tag "Next", class: "button-purple selected-btn" %>
+  <% end %>
+</section>

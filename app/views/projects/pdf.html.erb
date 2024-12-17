@@ -1,0 +1,48 @@
+<% @project.description %>
+<div style="margin-top: 80px;"></div>
+
+<div id="project-pdf">
+  <section class="project-title">
+    <div class="project-left">
+      <div class="top-titles">
+
+        <h3><%= @project.name %></h3>
+        <h4><%= @project.standfirst %></h4>
+
+        <div class="flex">
+          <p><strong>Difficulty </strong><%= @project.difficulty %>/5</p>
+          <div class="separator"></div>
+          <p><strong>Duration </strong><%= @project.duration %></p>
+        </div>
+      </div>
+    </div>
+    <div class="project-right">
+      <div class="image-container">
+        <img src="<%= asset_url(@project.picture)%>" alt="illustration of people gardening">
+      </div>
+    </div>
+  </section>
+
+  <section class="project-content">
+    <div class="items">
+      <h4>Items needed</h4>
+      <ul>
+        <% @project.items.each do |item| %>
+          <li><%= item.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="method">
+      <h4>Method</h4>
+      <ol>
+        <% @project.method.each do |step| %>
+          <li><%= step.capitalize %></li>
+        <% end %>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<script>
+  window.print()
+</script>

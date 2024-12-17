@@ -1,0 +1,20 @@
+
+.form-imputs {
+  font-family: $headers-font;
+  color: black;
+  font-size: 16px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  outline: none;
+  text-align: center !important;
+}
+
+.form-actions {
+  text-align: center;
+
+  .btn {
+    width: 60%;
+    margin: 0 auto !important;
+  }
+
+}

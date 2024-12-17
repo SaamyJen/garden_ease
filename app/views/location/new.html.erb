@@ -1,0 +1,23 @@
+<div class="popup-overlay">
+  <section class="selected-title">
+    <h3>Tell us where you're growing!</h3>
+    <p>In order to tailor to your climate conditions</p>
+  </section>
+
+  <div class="sidebar">
+      <p class="two"></p>&#9675;<br>
+      <p class="three"></p>&#9675;<br>
+      <p class="one"></p>&#9679;<br>
+  </div>
+
+  <section class="selected-form" data-controller="popup">
+    <%= form_with url: project_location_path(@project), method: :post, class: "location-form" do %>
+      <%= hidden_field_tag :project_id, @project_id %>
+      <%= text_field_tag :location, nil, placeholder: "Your location...", id: "city" %>
+      <%= submit_tag "Submit", class: "btn button-purple popup", data: { action: "click->popup#loading" } %>
+    <% end %>
+      <span class="mypopup loader" data-popup-target="popupMessage"><h4>One moment... <br> We're working on your project!</h4><br>
+      <img class="tree" id="tronc" src="<%= asset_url("tree.png")%>" alt="tree"></span>
+
+  </section>
+</div>

@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="my-projects">
+    <h1 class="projects">My projects</h1>
+
+    <% if @projects.empty? %>
+      <div class="no-project">
+        <p>You don't have any projects yet.</p>
+        <p>Create your first project!</p>
+        <img class="plant" src="<%= asset_url("plant2.png")%>"  alt="plant">
+        <a href="/benefits/new" class="btn button-purple" id="about">Let's get started</a>
+      </div>
+    <% else%>
+      <div class="project-cards">
+        <ul class="projects-ul">
+          <% @projects.each do |project| %>
+            <li class="projects-li">
+              <%= link_to project_results_path(project) do %>
+                <div class="image-container">
+                  <img class="plant-item"src="<%= asset_url(project.picture)%>" alt="plant">
+                </div>
+                <h5><%= project.name %></h5>
+              <% end %>
+              <%= link_to project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                <p>&#128465; Delete</p>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

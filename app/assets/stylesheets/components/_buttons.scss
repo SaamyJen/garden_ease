@@ -6,10 +6,66 @@
   color: $green;
   padding: 10px 30px;
   border-radius: 20px;
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
 
   &:hover {
-    border-radius: 0px;
-    transition: .2s;
+    color: #fff;
+  }
+
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: $green;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.button-white {
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: $green;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 20px;
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &:hover {
+    color: $green;
+  }
+
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  &:hover::before {
+    width: 100%;
   }
 }
 
@@ -20,11 +76,31 @@
   background-color: $purple;
   color: #fff;
   padding: 8px 30px;
-  border: none;
   border-radius: 30px;
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 
   &:hover {
-    border-radius: 0px;
-    transition: .2s;
+    background-color: $purple;
+    color: $purple;
+  }
+
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  &:hover::before {
+    width: 100%;
   }
 }

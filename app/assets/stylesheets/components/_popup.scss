@@ -1,0 +1,71 @@
+.location-form{
+  position: relative;
+}
+
+.tree {
+  position: absolute;
+  bottom: -100px;
+  right: 8%;
+  width: 420px;
+  height: 600px;
+  filter: brightness(80%);
+}
+
+
+.loader {
+  display: none;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+  background-color: $yellow;
+  text-align: left;
+  padding-left: 8%;
+
+
+  h4 {
+    font-size: 34px;
+    color: $green;
+    font-family: $headers-font;
+    margin: 40% 0 0 5%;
+  }
+}
+
+.mypopup.show {
+  display:block;
+}
+
+body.popup-open {
+  background-color:$yellow;
+  overflow: hidden;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  bottom: 22%;
+  right: 9%;
+  width: 50px;
+  height: 85px;
+  background:
+    radial-gradient(farthest-side,#fff 92%,#0000) 60% 6px/4px 4px,
+    radial-gradient(50% 60%,#53707b 92%,#0000) center/70% 55%,
+    radial-gradient(farthest-side,#53707b 92%,#0000) 50% 3px/14px 14px,
+    radial-gradient(142% 100% at bottom right,#0000 64%,#53707b 65%) bottom/57% 40%,
+    conic-gradient(from -120deg at right,#53707b 36deg,#0000 0)100% 3px/51% 12px,
+    conic-gradient(from 120deg at top left,#0000 ,#ef524a 2deg 40deg,#0000 43deg) top/100% 10px;
+  background-repeat: no-repeat;
+  transform: rotate(-26deg);
+  transform-origin: 100% 80%;
+  animation: l16 .25s infinite linear alternate;
+  z-index: 9;
+  margin-right: 155px;
+}
+
+
+@keyframes l16 {
+  100% {transform: rotate(0)}
+}

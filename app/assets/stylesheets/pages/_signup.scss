@@ -1,0 +1,102 @@
+h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 8px 12px;
+  // padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: $green;
+  outline: $green;
+}
+
+.form-inputs {
+  font-family: $headers-font;
+  color: black;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 20px;
+
+  input {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+.form-actions button {
+  width: 100%;
+  padding: 15px;
+}
+
+.login-link {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  color: #000;
+}
+
+  input[type="submit"].btn {
+    font-family: $headers-font;
+    font-weight: 600;
+    font-size: 24px;
+    background-color: $purple;
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 30px;
+    transition: .5s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &:hover {
+      background-color: $purple;
+      color: #fff;
+    }
+
+    &:before {
+      width: 0;
+      top: 0;
+      left: 0;
+      content: "";
+      background-color: #fff;
+      position: absolute;
+      transition: .5s;
+      border-radius: 20px;
+      z-index: -1;
+      height: 100%;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  .link-container {
+    margin-top: 16px;
+    text-align: center !important;
+  }
+
+  .devise-links {
+    color: #000;
+    font-family: $headers-font;
+    font-weight: 300;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      color: $green;
+    }
+  }

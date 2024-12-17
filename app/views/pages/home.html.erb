@@ -1,23 +1,23 @@
-<div class="main-container">
-  <div class="child">
+<div class="home-container">
+  <div class="home-title">
     <p class="welcome">Welcome to</p>
     <h1 class="main-title">GardenEase</h1>
-    <div class="presentation">
-      <p class="line">Your guide to a simple, personalised garden.</p>
-      <p class="line">No green thumb needed</p>
+    <div class="leaf-container">
+      <img class="growing" id="growing-a"src="<%= asset_url("growing_plants1a.svg")%>"  alt="growing plants">
+      <img class="growing" id="growing-b"src="<%= asset_url("growing_plants1b.svg")%>"  alt="growing plants">
+      <img class="growing" id="growing-c"src="<%= asset_url("growing_plants1c.svg")%>"  alt="growing plants">
+      <img class="growing" id="growing-d"src="<%= asset_url("growing_plants1d.svg")%>"  alt="growing plants">
+      <img class="growing" id="growing-e"src="<%= asset_url("growing_plants1e.svg")%>"  alt="growing plants">
     </div>
+  </div>
 
+  <div class="presentation">
+    <p class="line">Your guide to a simple, personalised garden.</p>
+    <p class="line">No green thumb needed.</p>
+  </div>
+
+  <div class="home-flex">
     <a href="/about" class="btn button-green" id="learn-more">Learn more</a>
-    <p class="btn button-green" id="start">Get started!</p>
-
+    <a href="/benefits/new" class="btn button-white" id="start">Get started!</a>
   </div>
 </div>
-
-
-<h1 class="header-black">GardenEase</h1>
-<h2 class="header-bold">Secondary heading</h2>
-<h3 class="header-medium">Third one here</h3>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<p class="button-green">Simple button</p>
-<p class="button-purple">Important button</p>

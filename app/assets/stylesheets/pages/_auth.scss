@@ -1,0 +1,28 @@
+.auth-input {
+  background-color: $yellow !important;
+  border: none;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 8px 0;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid #333;
+  }
+
+  &:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.auth-container {
+  background-color: $yellow;
+  height: auto;
+  padding: 40px;
+  width: 500px;
+  margin: auto;
+}

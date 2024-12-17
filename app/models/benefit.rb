@@ -1,4 +1,3 @@
 class Benefit < ApplicationRecord
-  belongs_to :project
-  validates :description, presence: true, uniqueness: true
+  validates :type_of_benefit, presence: true
 end
