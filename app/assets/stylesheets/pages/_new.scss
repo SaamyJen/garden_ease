@@ -1,15 +1,14 @@
 .selected-title {
-  margin-top: 120px !important;
+  margin: 120px auto 0 auto !important;
   text-align: center;
   width: 70%;
-  margin: 0 auto;
 }
 
 .selected-form {
-  margin-top: 40px !important;
+  // margin-top: 0px !important;
   text-align: center;
   width: 85%;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   position: relative;
 
   .benefit-form {
@@ -20,11 +19,11 @@
     .benefits-container {
       margin: 0 16px;
 
-      .title {
+      .benefits-title {
         border-radius: 28px;
         padding: 10px 16px !important;
         border: 1px dashed $green;
-        margin-bottom: 8px;
+        margin-bottom: -16px;
       }
     }
   }
@@ -32,18 +31,20 @@
 
 .sidebar {
   grid-column: 1;
-  position:absolute;
+  position: absolute;
   left: 3%;
-  top:45%;
+  top: 45%;
   color: #361d2e79;
   font-size: 25px;
-  line-height: 95%;
-  box-shadow: 1px 1px 1px #361d2e14;
+  line-height: 80%;
   padding: 4px;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-radius: 20px;
   transition: 1s;
+
+  .two .three {
+    transform: scale(0.7);
+  }
 }
 
 
@@ -131,5 +132,42 @@
 
   &::placeholder {
     color: #333 !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .selected-title {
+    margin: -24px auto 0 auto !important;
+  }
+
+  h3 {
+    font-size: 48px !important;
+  }
+
+  .sidebar {display: none;}
+
+  .benefit-form {
+    display: block !important;
+
+    .benefits-container {
+      width: 75vw;
+      margin: 32px auto !important;
+
+      .benefits-title {
+        border-radius: 28px;
+        padding: 10px 16px !important;
+        border: 1px dashed $green;
+        margin-bottom: 12px;
+      }
+
+      h5:after {
+        content:"\a";
+        white-space: pre;
+    }
+    }
+  }
+
+  .selected-btn {
+    margin-top: 16px;
   }
 }

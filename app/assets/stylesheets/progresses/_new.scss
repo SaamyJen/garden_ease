@@ -9,14 +9,17 @@
 
     .progress-form-card {
     margin-top: 60px;
-    width: 100%;
+    width: 400px;
+    height: 350px;
+    margin: 50px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px;
     border: none;
+    border-radius: 15px;
 
-  .form-card {
+    .form-card {
     background-color: $yellow;
     display: flex;
     flex-direction: column;
@@ -29,6 +32,26 @@
       text-align: center;
     }
 
+    .upload-photo {
+      background-color: $green;
+      color: white;
+      padding: 8px 30px;
+      border-radius: 30px;
+      border: none;
+      font-family: $headers-font;
+      font-size: 20px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+
       input[type="text"],
       input[type="file"],
       textarea {
@@ -38,7 +61,7 @@
         border: none;
         border-bottom: 1px solid #333;
         border-radius: 0;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         font-size: 14px;
 
         &:focus {
@@ -48,17 +71,22 @@
           -moz-box-shadow: none;
           -webkit-box-shadow: none;
         }
+        &:-webkit-autofill {
+          transition: background-color 5000s ease-in-out 0s;
+        }
       }
 
-      .button-purple {
+        .save-progress {
         background-color: #932770;
-        color: white;
         padding: 8px 30px;
         border-radius: 30px;
         border: none;
+        font-family: $headers-font;
         font-size: 20px;
         cursor: pointer;
         width: 100%;
+        margin-top: 10px;
+        margin-bottom: 30px;
         transition: background-color 0.3s;
 
         &:hover {
@@ -66,5 +94,4 @@
         }
 
       }
-    }
-  }
+}

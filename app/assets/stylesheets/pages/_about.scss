@@ -1,36 +1,104 @@
-.about {
-  position: absolute;
-  left: 10%;
-  width: 560px;
-  margin-top: 50px;
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .about-container {
+    overflow: hidden;
+    height: 90vh;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-  .about-us{
-    font-size:120px !important;
-  }
-  #about{
-    margin-top: 20px;
+    .left {
+      width: 30%;
+      margin-left: 10vw;
+
+      .about-p {
+        margin-top: 20px;
+      }
+
+      .button-purple {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 64px;
+    }
+
+    .right {
+      width: 55%;
+      overflow: hidden;
+
+      .plant {
+        width: 1400px;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 1800px) {
-  .plant {
-    width: 300px;
-    position: absolute;
-    left: 900px;
-    top: 20%;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .about-container {
+    overflow: hidden;
+    height: 90vh;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .left {
+      width: 65%;
+      margin-left: 10vw;
+
+      .button-purple {
+        font-size: 18px;
+      }
+    }
+
+    .right {
+      width: 60%;
+    }
+
+    .plant {
+      width: 1200px;
+    }
+
+    h3 {
+      font-size: 48px;
+    }
   }
 }
 
-@media only screen and (max-width: 1350px) {
-  .plant {
-    position: absolute;
-    left: 800px;
-    top: 20%;
-  }
-}
 
-@media only screen and (max-width: 1150px) {
-  .plant {
-    display: none;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+  .about-container {
+    overflow: hidden;
+    width: 80vw;
+    margin: 0 auto;
+
+    h3 {
+      font-size: 32px !important;
+    }
+
+    .left {
+      width: 80%;
+
+      .button-purple {
+        margin-top: 32px;
+      }
+    }
+
+    .right {
+      display: none;
+    }
+
+    .button-purple {
+      font-size: 14px;
+      margin: 8px 0 20px 0 !important;
+    }
   }
 }

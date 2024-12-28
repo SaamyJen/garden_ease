@@ -6,7 +6,6 @@ h2 {
 input {
   width: 100%;
   padding: 8px 12px;
-  // padding: 15px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -23,8 +22,9 @@ input {
   font-family: $headers-font;
   color: black;
   font-size: 16px;
-  padding: 10px 30px;
+  padding: 10px 0;
   border-radius: 20px;
+  margin-top: 40px;
 
   input {
     background-color: $yellow;
@@ -55,7 +55,6 @@ input {
     font-size: 24px;
     background-color: $purple;
     color: #fff;
-    padding: 8px 30px;
     border-radius: 30px;
     transition: .5s ease;
     position: relative;
@@ -84,3 +83,25 @@ input {
       width: 100%;
     }
   }
+
+  .link-container {
+    margin-top: 16px;
+    text-align: center !important;
+  }
+
+  .devise-links {
+    color: #000;
+    font-family: $headers-font;
+    font-weight: 300;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+  input[type="submit"].btn {
+    font-size: 16px;
+  }
+}

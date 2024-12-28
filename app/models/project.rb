@@ -47,15 +47,16 @@ class Project < ApplicationRecord
                   Name.
                   Standfirst.
                   Difficulty - between 1-5. Has to be above 0.
-                  Duration - in either hours, days or weeks.
+                  Duration - in either days, weeks or months. Don't include word 'duration'.
                   Description - ~80 words. Mention the location (#{location}) here.
                   A broken down bulleted list of 1-7 items I would need, put a
                   '|' between each item.
                   An unordered list of the method - max 1000 words, no headings,
-                  put a '|' and <br> between each step.
+                  put a '|' between each step.
                   A fun fact about it - max 20 words.
-                  A broken down bulleted list of 4 plants that are mentioned
-                  for  my project, put a '|' between each plant.
+                  A broken down bulleted list of 7 plants that are mentioned
+                  for  my project, put a '|' between each plant and don't use
+                  brackets.
 
 
 
@@ -63,14 +64,14 @@ class Project < ApplicationRecord
                   English and assume I don't know terms like 'proper drainage',
                   'trellis' or 'mulch' and that I'd need an explanation of how
                   to do things like sow seeds in pots. Leave out all special
-                  characters like #, * and /.
+                  characters like #, *, /.
 
 
                   I need this to be generated as follows:
                   / your generated response for name
                   / your generated response for standfirst
                   / your generated response for difficulty
-                  / your generated response for duration like '1 week' or '2 months'
+                  / your generated response for duration
                   / your generated response for description
                   / your generated response for items
                   / your generated response for method
@@ -104,7 +105,6 @@ class Project < ApplicationRecord
     self.plants = split_plants
 
     self.save
-
   end
 
 
@@ -114,7 +114,7 @@ class Project < ApplicationRecord
 
   def picture
 
-    benefit = Benefit.find(selected_benefits.last)
+    benefit = Benefit.find(selected_benefits.sample)
 
     case benefit.type_of_benefit
     when "Fresh food"

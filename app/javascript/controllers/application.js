@@ -15,4 +15,11 @@ const savedBtn = document.querySelector("#saved-btn")
 //   })
 // }
 
+// const growingPlants = document.querySelectorAll(".growing");
+
+// growingPlants.forEach( plant => {
+//   plant.addEventListener("animationend"), {
+//     plant.classList.add("leaf-animation");
+//   }});
+
 export { application }

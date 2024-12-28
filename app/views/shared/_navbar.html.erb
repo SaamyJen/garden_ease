@@ -9,13 +9,13 @@
     </div>
 
     <ul>
-      <li>
+      <li id="about">
         <%= link_to about_path do %>
           <p>About</p>
         <% end %>
       </li>
 
-      <li>
+      <li id="bigger-screen">
         <div class="dropdown">
           <button class="dropbtn">Account</button>
           <div class="dropdown-content">
@@ -29,6 +29,29 @@
             <% else %>
               <%= link_to new_user_session_path do %>
                 <p class="option btn">Sign in</p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+
+      <li id="small-screen">
+        <div class="dropdown">
+          <button class="dropbtn">+</button>
+          <div class="dropdown-content">
+            <% if user_signed_in? %>
+              <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+                <p class="option btn button-purple">Sign out</p>
+              <% end %>
+              <%= link_to projects_path do %>
+                <p class="option btn button-purple">My projects</p>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <p class="option btn">Sign in</p>
+              <% end %>
+              <%= link_to about_path do %>
+                <p class="option btn button-purple">About</p>
               <% end %>
             <% end %>
           </div>

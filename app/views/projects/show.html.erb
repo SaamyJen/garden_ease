@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <meta property="og:title" content="GardenEase">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="<%= asset_url(@project.picture) %>">
   <meta property=”og:url” content="<%= project_results_url(@project) %>">
   <meta property=”og:description” content="<%= @project.standfirst %>">
@@ -7,9 +8,9 @@
 <% end %>
 
 <div class="regen-btn">
-  <h6>Don't love it?</h6>
+  <h6>Don't love this idea?</h6>
   <%= link_to project_generate_path(@project), data: { turbo_method: :post } do  %>
-    <button class="button-green">Try again!</button>
+    <button class="button-green">Generate new one</button>
   <% end %>
 </div>
 
@@ -49,6 +50,28 @@
     </div>
   </section>
 
+  <div class="carousel-container">
+    <h4>Plants for your project</h4>
+    <div data-controller="carousel" class="wrapper">
+      <i data-carousel-target="left" data-action="click->carousel#left" class="fa-solid fa-less-than"></i>
+      <div class="carousel2" data-carousel-target="carousel">
+        <ul>
+          <% @project.plants.each_with_index do |plant,i|%>
+            <li>
+              <div class="plant-container2">
+                <img
+                  src="<%= plants_image_generator_path(keyword: plant)%>"
+                  alt="<%= plant %>">
+              </div>
+              <h5 class="plant-name"><%= plant.capitalize %></h5>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <i data-carousel-target="right" data-action="click->carousel#right"  class="fa-solid fa-greater-than"></i>
+    </div>
+  </div>
+
   <section class="share-btns">
     <div id="drop">
       <div class="share-container">
@@ -62,7 +85,7 @@
     </div>
 
     <%= link_to project_pdf_path(@project), target: "_blank" do %>
-      <button class="button-green">Download</button>
+      <button class="button-green" id="download-btn">Download</button>
     <% end %>
 
     <div id="saved-btn">
@@ -76,100 +99,80 @@
     </div>
   </section>
 
-  <section class="project-content">
-    <div class="items">
-      <div class="lists">
-        <div class="list">
-          <h4>Items needed</h4>
-          <ul>
-            <% @project.items.each do |item| %>
-              <li><%= item.capitalize %></li>
-            <% end %>
-          </ul>
-        </div>
 
-        <div class="list">
-          <h4>Plants you can use</h4>
-          <ul>
-            <% @project.plants.each do |plant| %>
-              <li><%= plant.capitalize %>
-              <img class="image-url"
-                src="<%= plants_image_generator_path(keyword: plant)%>"
-                alt="<%= plant %>">
-              </li>
-            <% end %>
-          </ul>
+  <section class="project-content">
+    <div class="project-body">
+      <div class="items">
+        <div class="lists">
+          <div class="list">
+            <h4>Items needed</h4>
+            <ul>
+              <% @project.items.each do |item| %>
+                <li><%= item.capitalize %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
 
-    <section class="map">
-    <h4 class= "map-title">Nearest garden centres in <%= @project.location.capitalize%>:</h4>
-    <div style="height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </section>
-  </div>
+      <div class="separator"></div>
 
-    <div class="separator"></div>
-
-    <div class="method">
-      <h4>Method</h4>
-      <ol>
-        <% @project.method.each do |step| %>
-          <li><%= step.capitalize %></li>
-        <% end %>
-      </ol>
-
-      <div id="saved-btn">
-        <% if current_user.projects.include?(@project) == false %>
-          <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
-        <% else %>
-          <p>Saved</p>
-        <% end %>
+      <div class="method">
+        <h4>Method</h4>
+        <ol>
+          <% @project.method.each do |step| %>
+            <li><%= step.capitalize %></li>
+          <% end %>
+        </ol>
       </div>
     </div>
   </section>
 
 
+<section class="map">
+    <h4 class= "map-title">Garden centres in <%= @project.location.capitalize%></h4>
+    <div id="map" style="height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</section>
 
-<% if current_user  %>
-  <div class="progresses">
-    <h4>My progress</h4>
-    <% if @project.progresses.empty? %>
-      <div class="no-progress">
-        <p>You haven't uploaded any progress yet.</p>
-        <p>
-          <%= link_to new_project_progress_path(@project) do %>
-            <button class="button-green upload-progress">Upload progress</button>
-          <% end %>
-        </p>
-      </div>
-    <% else%>
-      <p>
-        <%= link_to new_project_progress_path(@project) do %>
-          <button class="button-green new-progress">New progress</button>
-        <% end %>
-      </p>
-    <% end %>
-
+<div class="progresses">
+  <% if current_user&.projects&.include?(@project) %>
+    <h4 class="progresses-title">My progress</h4>
     <ul class="projects-ul">
       <% @project.progresses.each do |progress| %>
         <li class="projects-li">
           <div class="image-container">
-            <img class="progress-photo" src="<%= url_for(progress.photo) %>" alt="Progress photo">
+            <img class="progress-photo" src="<%= cl_image_path(progress.photo.key) %>" alt="Progress photo">
           </div>
-          <h5 class="progress-date"><%= progress.created_at.strftime(' %e %B %y - %l:%M') %></h5>
-          <p><%= progress.description %></p>
+          <h5 class="progress-date"><%= progress.description %></h5>
+          <p><%= progress.description(' %e %B %y - %l:%M') %></p>
           <%= link_to progress_path(progress), class: 'delete', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
             <p>&#128465; Delete</p>
           <% end %>
         </li>
       <% end %>
     </ul>
-  </div>
-<% end %>
-
+    <% if @project.progresses.empty? %>
+      <div class="no-progress">
+        <p class="no-progresses">You haven't uploaded any progress yet. <br> Upload a photo to document your progress
+          and create a gallery of your garden's transformation over time!</p>
+        <%= link_to new_project_progress_path(@project) do %>
+          <button class="button-green upload-progress">Upload progress</button>
+        <% end %>
+      </div>
+    <% else%>
+      <%= link_to new_project_progress_path(@project) do %>
+        <button class="button-green new-progress">New progress</button>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to project_my_saved_projects_path do %>
+      <button class="button-green">Add to your projects</button>
+    <% end %>
+  <% end %>
+</div>
 
   <div class="separator"></div>
 </div>

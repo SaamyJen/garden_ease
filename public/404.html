@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Oops! Something Went Wrong 🌱</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=archivo@200,201,400,401,600,601&display=swap" rel="stylesheet">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    .gardenease-default-error-page {
+      background-color: #ffed80;
+    }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    h1, h3, h4 {
+      font-family: "Clash Display", "Helvetica", "sans-serif";
+      font-weight: 500;
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    li, p, a {
+      font-family: "Archivo", "Helvetica", "sans-serif";
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    a {
+      text-decoration: none;
+      color: #479167;
+      transition: .3 ease-in-out;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    li {
+      margin-left: -10px;
+    }
+
+    a:hover {
+      color: #000;
+    }
+
+    .dialog {
+      width: 80vw;
+      padding: 20vh 10vw;
+    }
+
+    ul {
+      list-style: none;
+    }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
+<body class="gardenease-default-error-page">
+  <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1>Lost in the Weeds? &#x1F33E;</h1>
+      <h3>We can't seem to find the page you're looking for. <br>It might have been moved, pruned, or never planted!</h3>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>Here's how you can get back on track:<p>
+    <ul>
+      <li>&#x1F342; Return to our <a href="www.gardenease.io">homepage</a>.</li>
+      <li>&#x1F33F; Contact us if the issue persists.</li>
+      <li>&#x1F342; Explore your gardening projects <a href="https://www.gardenease.io/projects">here</a>.</li>
+    </ul>
+    <p>We're rooting for you! Thanks for your patience as we dig up the problem.</p>
   </div>
 </body>
 </html>

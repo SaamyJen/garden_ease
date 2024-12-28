@@ -2,17 +2,19 @@
  .progresses {
   width: 80vw;
   margin: 0 auto;
-  height: 400px;
+  // height: 400px;
   background-color: transparent;
+  padding: 20px 0px;
 
   .projects-ul {
-    margin-top: 40px;
+    margin-top: 12x;
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-
+    margin-bottom: 0px;
+    margin-left: -26px;
     .projects-li {
       // height: 360px;
       width: 240px;

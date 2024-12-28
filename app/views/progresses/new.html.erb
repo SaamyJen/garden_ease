@@ -13,9 +13,10 @@
         </div>
 
         <div class="form-group">
-          <label for="photo-upload">Upload a Photo</label>
+          <%= f.input :photo, input_html: {class: 'd-none'}, label_html: {class: 'upload-photo'},
+          label: '📸  Upload a photo', required: false %>
+          <%# <label for="photo-upload">Upload a Photo</label>
           <%= f.input :photo, label: false, input_html: {id: "photo-upload"} %>
-        <%# <img id="photo-preview" src="#" alt="Photo preview"> %>
         </div>
 
         <div class="form-group">

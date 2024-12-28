@@ -15,15 +15,20 @@
     border-radius: 0;
     margin-bottom: 20px;
     width: 80%;
-    padding: 8px 0;
+    padding: 8px 8px;
 
     &::placeholder {
       color: #333 !important;
     }
-    padding: 8px 8px;
   }
 
   input[type=submit] {
-    width: 60%;
+    max-width: 150px;
+
+    &:hover {
+      background-color: #fff;
+      color: $purple;
+      transition: .3s ease;
+    }
   }
 }

@@ -1,3 +1,5 @@
+.devise { margin-top: 0px !important; }
+
 .auth-input {
   background-color: $yellow !important;
   border: none;
@@ -22,7 +24,24 @@
 .auth-container {
   background-color: $yellow;
   height: auto;
-  padding: 40px;
-  width: 500px;
+  width: 40%;
   margin: auto;
+}
+
+@media only screen and (min-width: 1200px) {
+  .devise-header { font-size: 80px !important; text-align: center; width: 72%; margin: 0 auto; }
+}
+
+@media only screen and (min-width: 768px) {
+  .devise-header { font-size: 68px !important; text-align: center; width: 72%; margin: 0 auto; }
+}
+
+@media only screen and (max-width: 768px) {
+
+
+  .auth-container { width: 80%; }
+
+  .devise { margin-top: -40px !important; }
+
+  .devise-header { font-size: 56px !important; text-align: center; }
 }

@@ -56,7 +56,7 @@ spaces_array = ["Balcony",
   "Windy",
   "Humid",
   "Uneven or sloped",
-  "Portable container-friendly",]
+  "Portable container-friendly"]
 
 puts "Creating everything..."
 20.times do
